@@ -2,7 +2,6 @@ import './index.css';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-
 import Router from './routes/index.tsx';
 import { Provider } from 'react-redux';
 

@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-
 import { useEffect, useRef } from 'react';
+
+import * as THREE from 'three';
 
 export const meta = {
   title: '05.透视相机',
@@ -12,7 +12,7 @@ const Eg05PerspectiveCamera = () => {
   useEffect(() => {
     const container = mountRef.current;
     if (!container) {
-        return;
+      return;
     }
 
     // 创建3D场景
@@ -46,11 +46,11 @@ const Eg05PerspectiveCamera = () => {
     container.appendChild(renderer.domElement);
 
     return () => {
-        geometry.dispose();
-        material.dispose();
+      geometry.dispose();
+      material.dispose();
 
-        renderer.dispose();
-        container.removeChild(renderer.domElement);
+      renderer.dispose();
+      container.removeChild(renderer.domElement);
     };
     
   }, []);

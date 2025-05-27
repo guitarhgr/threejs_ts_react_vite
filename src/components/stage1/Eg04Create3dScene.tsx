@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-
 import { useEffect, useRef } from 'react';
+
+import * as THREE from 'three';
 
 export const meta = {
   title: '04.创建一个3D场景',
@@ -12,7 +12,7 @@ const Eg04Create3dScene = () => {
   useEffect(() => {
     const container = mountRef.current;
     if (!container) {
-        return;
+      return;
     }
 
     // 创建3d场景
@@ -31,11 +31,11 @@ const Eg04Create3dScene = () => {
     console.log('scene', scene);
 
     return () => {
-        geometry.dispose();
-        material.dispose();
+      geometry.dispose();
+      material.dispose();
 
-        // renderer.dispose();
-        // container.removeChild(renderer.domElement);
+      // renderer.dispose();
+      // container.removeChild(renderer.domElement);
     };
     
   }, []);

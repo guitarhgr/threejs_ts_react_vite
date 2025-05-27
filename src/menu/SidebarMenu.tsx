@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Menu } from 'antd';
 import {
   HomeOutlined,
@@ -38,7 +39,7 @@ function getOpenKeys(pathname: string, collapsed: boolean) {
   if (parts.length >= 2) {
     return [parts[0]];
   }
-  
+
   return [];
 }
 

@@ -5,6 +5,7 @@ import { lazy } from 'react';
 // 自动从文件名提取排序号
 function extractOrder(name: string): number {
     const match = name.match(/^Eg(\d+)/i);
+
     return match ? parseInt(match[1], 10) : 999;
 }
 
@@ -13,8 +14,10 @@ function autoFormatTitle(name: string): string {
     const match = name.match(/^Eg(\d+)([A-Z].*)$/);
     if (match) {
         const [, num, title] = match;
+
         return `${num}. ${splitCamelCase(title)}`;
     }
+
     return name;
 }
 
@@ -31,7 +34,7 @@ export const modules = import.meta.glob('../components/**/[A-Z]*.tsx', {
 export const routes = Object.entries(modules).map(([path, mod]: any) => {
     const match = path.match(/components\/(.*?)\/(.*?)\.tsx$/);
     if (!match) {
-        return null;
+      return null;
     }
   
     const [, stage, componentName] = match;
@@ -42,12 +45,12 @@ export const routes = Object.entries(modules).map(([path, mod]: any) => {
     const label = meta.title || autoFormatTitle(componentName);
 
     return {
-        path: routePath,
-        element: Component,
-        key: `${stage}-${componentName}`,
-        label: label,
-        stage: stage,
-        order: extractOrder(componentName),
+      path: routePath,
+      element: Component,
+      key: `${stage}-${componentName}`,
+      label: label,
+      stage: stage,
+      order: extractOrder(componentName),
     };
 }).filter(Boolean) as {
     path: string;
