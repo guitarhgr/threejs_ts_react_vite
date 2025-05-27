@@ -1,5 +1,10 @@
-import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+
+import { useEffect, useRef } from 'react';
+
+export const meta = {
+  title: '04.创建一个3D场景',
+};
 
 const Eg04Create3dScene = () => {
   const mountRef = useRef<HTMLDivElement>(null);

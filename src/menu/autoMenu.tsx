@@ -27,18 +27,26 @@ const grouped = routes.reduce((acc, route) => {
     return acc;
 }, {} as Record<string, typeof routes>);
 
+function formatStageTitle(stage: string) {
+    const match = stage.match(/^stage(\d+)/);
+    
+    const stageMap: Record<string, string> = {
+        'stage1': '第一阶段 新手入门',
+    };
+
+    return stageMap[stage] || `阶段 ${match ? match[1] : stage}`; // 默认返回阶段数字
+}
+
 export const menuItems = [
     ...Object.entries(grouped).map(([stage, items]) => ({
         key: stage,
         icon: stageIconMap[stage] || <AppstoreOutlined />,
-        label: stage,
-        children: items.map((item) => ({
-            key: item.key,
-            label: (
-                <Link to={`/${item.path}`}>
-                    {item.label}
-                </Link>
-            ),
-        })),
+        label: formatStageTitle(stage),
+        children: items
+            .sort((a, b) => a.order - b.order)
+            .map((item) => ({
+                key: item.key,
+                label: <Link to={`/${item.path}`}>{ item.label }</Link>,
+            })),
     })),
 ];

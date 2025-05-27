@@ -1,12 +1,8 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense } from 'react';
 
 import App from '../App';
 import { routes } from './autoRoutes';
-import Example1 from '../components/stage1/Example1';
-
-import Eg04Create3dScene from '../components/stage1/Eg04Create3dScene';
-import Eg05PerspectiveCamera from '../components/stage1/Eg05PerspectiveCamera';
 
 export default function Router() {
   return (
@@ -32,10 +28,6 @@ export default function Router() {
                         }
                     />
                 ))}
-                {/* <Route path="stage1/example1" element={<Example1 />} />
-                <Route path="stage1/eg04Create3dScene" element={<Eg04Create3dScene />} />
-                <Route path="stage1/eg05PerspectiveCamera" element={<Eg05PerspectiveCamera />} />
-                <Route path="*" element={<Navigate to="/" />} /> */}
             </Route>
         </Routes>
     </BrowserRouter>

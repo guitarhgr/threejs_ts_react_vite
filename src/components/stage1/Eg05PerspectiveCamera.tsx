@@ -1,5 +1,10 @@
-import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+
+import { useEffect, useRef } from 'react';
+
+export const meta = {
+  title: '05.透视相机',
+};
 
 const Eg05PerspectiveCamera = () => {
   const mountRef = useRef<HTMLDivElement>(null);
