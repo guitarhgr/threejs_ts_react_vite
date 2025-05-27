@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import { useEffect, useRef } from 'react';
+
+import * as THREE from 'three';
 
 const Example1 = () => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -21,8 +22,6 @@ const Example1 = () => {
     renderer.setSize(width, height);
     container.appendChild(renderer.domElement);
 
-    
-
     const geometry = new THREE.BoxGeometry();
     const material = new THREE.MeshBasicMaterial({ color: 0x00aaff, wireframe: true });
     const cube = new THREE.Mesh(geometry, material);
@@ -30,33 +29,33 @@ const Example1 = () => {
 
     let animationId: number;
     const animate = () => {
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-        renderer.render(scene, camera);
-        animationId = requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      renderer.render(scene, camera);
+      animationId = requestAnimationFrame(animate);
     };
     animate();
 
     const handleResize = () => {
-        const w = container.clientWidth || window.innerWidth;
-        const h = container.clientHeight || window.innerHeight;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
+      const w = container.clientWidth || window.innerWidth;
+      const h = container.clientHeight || window.innerHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-        cancelAnimationFrame(animationId);
-        window.removeEventListener("resize", handleResize);
-        renderer.dispose();
-        if (container.contains(renderer.domElement)) {
-            container.removeChild(renderer.domElement);
-        }
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', handleResize);
+      renderer.dispose();
+      if (container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement);
+      }
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "100vw", height: "100vh", overflow: "hidden" }} />;
+  return <div ref={mountRef} style={{ width: '100vw', height: '100vh', overflow: 'hidden' }} />;
 };
 
 export default Example1;
