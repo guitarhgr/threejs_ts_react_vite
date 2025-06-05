@@ -7,7 +7,7 @@ export const meta = {
   title: '01.几何体顶点位置数据和点模型对象',
 };
 
-const Eg01GeoBufferAttribute = () => {
+const Eg01GeoBufferAttributePoint = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -134,4 +134,4 @@ const Eg01GeoBufferAttribute = () => {
   return <div ref={mountRef} style={{ width: '100vw', height: '100vh', overflow: 'hidden' }} />;
 };
 
-export default Eg01GeoBufferAttribute;
+export default Eg01GeoBufferAttributePoint;

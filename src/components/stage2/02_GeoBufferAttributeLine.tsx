@@ -7,7 +7,7 @@ export const meta = {
   title: '02.线模型渲染顶点数据',
 };
 
-const Eg02GeoBufferLine = () => {
+const Eg02GeoBufferAttributeLine = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -133,4 +133,4 @@ const Eg02GeoBufferLine = () => {
   return <div ref={mountRef} style={{ width: '100vw', height: '100vh', overflow: 'hidden' }} />;
 };
 
-export default Eg02GeoBufferLine;
+export default Eg02GeoBufferAttributeLine;
