@@ -138,6 +138,8 @@ const Eg13Stats = () => {
       // 从容器中移除渲染器的DOM元素
       container.removeChild(renderer.domElement);
 
+      stats.dom.remove();
+
       mountRef.current = null;
     };
     
