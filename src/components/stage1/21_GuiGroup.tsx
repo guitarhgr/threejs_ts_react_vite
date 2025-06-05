@@ -187,6 +187,8 @@ const Eg21GuiGroup = () => {
       // 从容器中移除渲染器的DOM元素
       container.removeChild(renderer.domElement);
 
+      gui.destroy();
+
       mountRef.current = null;
     };
     

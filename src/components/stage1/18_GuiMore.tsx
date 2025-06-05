@@ -171,6 +171,8 @@ const Eg18GUIMore = () => {
       // 释放辅助坐标系
       axesHelper.dispose();
 
+      gui.destroy();
+
       // 从容器中移除渲染器的DOM元素
       container.removeChild(renderer.domElement);
 
