@@ -32,6 +32,7 @@ function formatStageTitle(stage: string) {
   
   const stageMap: Record<string, string> = {
     'stage1': '第一阶段 新手入门',
+    'stage2': '第二阶段 几何体BufferGeometry顶点',
   };
 
   return stageMap[stage] || `阶段 ${match ? match[1] : stage}`; // 默认返回阶段数字
