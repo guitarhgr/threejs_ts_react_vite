@@ -86,7 +86,11 @@ const Eg03GeoBufferAttributeMesh = () => {
       renderer.dispose();
       geometry.dispose();
       material.dispose();
+      scene.clear();
+      camera.clear();
+      
       orbitControls.dispose();
+      
     };
 
   }, []);
