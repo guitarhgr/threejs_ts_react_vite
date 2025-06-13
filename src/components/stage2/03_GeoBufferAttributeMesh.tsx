@@ -13,6 +13,10 @@ const Eg03GeoBufferAttributeMesh = () => {
   useEffect(() => {
     const container = mountRef.current;
 
+    if (!container) {
+      return;
+    }
+
     const scene = new THREE.Scene();
 
     // 创建缓冲几何体
@@ -53,7 +57,7 @@ const Eg03GeoBufferAttributeMesh = () => {
     renderer.setSize(width, height);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    container?.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     const render = () => {
       renderer.render(scene, camera);
@@ -63,7 +67,7 @@ const Eg03GeoBufferAttributeMesh = () => {
 
     render();
 
-    const oribitControls = new OrbitControls(camera, renderer.domElement);
+    const orbitControls = new OrbitControls(camera, renderer.domElement);
 
     window.addEventListener('resize', () => {
       const currentWidth = container?.clientWidth || window.innerWidth;
@@ -75,6 +79,15 @@ const Eg03GeoBufferAttributeMesh = () => {
 
       camera.updateProjectionMatrix();
     });
+
+    return () => {
+      container.removeChild(renderer.domElement);
+
+      renderer.dispose();
+      geometry.dispose();
+      material.dispose();
+      orbitControls.dispose();
+    };
 
   }, []);
 
